@@ -1,0 +1,233 @@
+@use "reset";
+@use "variables" as *;
+
+body {
+    font-family: "Space Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0px;
+    background-color: #C5E4E7;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+main {
+    & > img {
+        margin: 2.5rem auto;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator {
+    width: min(920px, 100vw);
+    background-color: $clr-white;
+    border-radius: 1rem 1rem 0 0;
+    padding: 2rem;
+    @extend .flex;
+    gap: $gap;
+
+}
+
+label {
+    display: inline-block;
+    font-size: $fnt-sz-normal;
+    color: $clr-label;
+    margin-bottom: 6px;
+
+    & + span {
+        @extend label;
+        color: $clr-err-text;
+        float: right;
+        visibility: hidden;
+    }
+}
+
+div:has(input:invalid) > span{
+    visibility: visible
+}
+
+.calculator-main {
+    @extend .flex;
+    gap: $gap;
+
+    input {
+        font-family: "Space Mono", serif;
+        font-weight: 700;
+        color: $clr-pri;
+        font-size: $fnt-sz-medium;
+        background-image: url('../images/icon-dollar.svg');
+        background-repeat: no-repeat;
+        background-position: left 1.25rem center;
+        padding: .5rem 1.25rem;
+        background-color: $clr-input-bg;    
+        caret-color: $clr-sec;
+        border-radius: $border-radius;
+        direction: rtl;
+
+        &:focus-visible, &:hover{
+            outline: 2px solid $clr-sec;
+        }
+        
+        &:invalid {
+            outline: 2px solid $clr-err-input;
+        }
+    }
+}
+
+.calculator-screen {
+    background-color: $clr-pri;
+    border-radius: 1rem;
+    padding: 2.25rem 1.5rem 1.5rem;
+
+    & > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    p {
+        font-size: $fnt-sz-normal;
+        color: $clr-white;
+
+        span {
+            font-size: $fnt-sz-small;
+            color: $clr-per-person;
+        }
+    }
+
+    .amnt {
+        color: $clr-sec;
+        font-size: $fnt-sz-large;
+        letter-spacing: -.67px;
+    }
+
+    .tip-amnt {
+        margin-bottom: 1.25rem;
+    }
+
+    .total-amnt {
+        margin-bottom: 2rem;
+    }
+
+    input[type="reset"] {
+        background-color: #0D686D;
+        font-size: 1.25rem;
+        color: $clr-pri;
+        text-transform: uppercase;
+        font-family: "Space Mono", serif;
+        font-weight: 700;
+        border-radius: $border-radius;
+        padding: .5rem 2rem;
+        
+        &:hover {
+            background-color: $clr-btn-hover;
+        }
+
+        &.active {
+            background-color: $clr-sec;
+            color: $clr-pri;
+        }
+    }
+}
+
+.tip {
+
+    label {
+        margin-bottom: 1rem;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        .btn {
+            cursor: pointer;
+            font-size: $fnt-sz-medium;
+            background-color: $clr-pri;
+            color: $clr-white;
+            text-align: center;
+            border-radius: $border-radius;
+            padding: 0.375rem 1rem;
+
+            &:hover {
+                background-color: $clr-btn-hover;
+                color: $clr-pri;
+            }
+
+            &.active {
+                background-color: $clr-sec;
+                color: $clr-pri;
+            }
+        }
+
+        input.btn-input {
+            background-image: none;
+
+            &::placeholder {
+                color: #547878;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1000px){
+    main {
+        & > img {
+            margin: 5.5rem auto;
+        }
+    }
+
+    .calculator {
+        flex-direction: row;
+        border-radius: 1rem;
+        gap: 3rem;
+    }
+
+    .calculator-main {
+        @extend .flex;
+        gap: 2.5rem;
+        flex-basis: 379px;
+    }
+
+    .calculator-screen {
+        padding: 2.5rem;
+        flex-grow: 1;
+
+        .amnt {
+            font-size: $fnt-sz-xlarge;
+            letter-spacing: -1px;
+        }
+    
+        .tip-amnt {
+            margin-bottom: 1.5rem;
+        }
+    
+        .total-amnt {
+            margin-bottom: 8.3125rem;
+        }
+    
+    }
+
+    .tip {
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+    
+            .btn {
+                padding: 0.375rem .75rem;
+            }
+
+            input.btn-input {
+                padding: 0.375rem .75rem;
+            }
+        }
+    }
+}
+

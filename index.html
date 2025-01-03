@@ -3,42 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <script src="index.js" defer></script>
   <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <main>
+    <img src="./images/logo.svg" alt="Logo">
+    <div class="calculator">
+      <div class="calculator-main">
+        <div class="bill">
+          <label class="bill-lbl">Bill</label>
+          <span class="err-txt">Can't be zero</span>
+          <input type="number" name="bill" onchange="handleChange(event)" placeholder="0" min="1" />
+        </div>
+        <div class="tip">
+          <label class="tip-lbl">Select Tip %</label>
+          <div class="buttons">
+            <div class="btn">5%</div>
+            <div class="btn">10%</div>
+            <div class="btn">15%</div>
+            <div class="btn">25%</div>
+            <div class="btn">50%</div>
+            <input class="btn-input" name="btn-input" onchange="handleChange(event)" type="number" placeholder="Custom" />
+          </div>
+        </div>
+        <div class="people">
+          <label class="no-label">Number of People</label>
+          <span class="err-txt">Can't be zero</span>
+          <input type="number" name="people" onchange="handleChange(event)" placeholder="0" min="1" />
+        </div>
+      </div>
+      <div class="calculator-screen">
+        <div class="tip-amnt">
+          <p>Tip Amount <br /><span>/ person</span></p>
+          <div class="amnt">$0.00</div>
+        </div>
+        <div class="total-amnt">
+          <p>Total <br /><span>/ person</span></p>
+          <div class="amnt">$0.00</div>
+        </div>  
+        <input type="reset" value="Reset">
+      </div>
+    </div>
+  </main>
   </div>
 </body>
 </html>
