@@ -24,10 +24,10 @@ buttonsEL.addEventListener('click', (e) => {
         removeActiveClass();
 
         e.target.classList.add("active");
+        if(btnInputEL.value){
+            btnInputEL.value = "";
+        }
         selectedTipPer = Number(getTip(e.target.innerText));
-    }
-    if(e.target.className === "btn-input"){
-        selectedTipPer = Number(e.target.value);
     }
 });
 
@@ -38,18 +38,20 @@ const getTipPerPerson  = (bill, people) => {
 function handleChange(e) {
     const {name, value} = e.target;
     if(name === "bill"){
-        bill = Number(value);
+        bill = Number(Number(value).toFixed(2));
     }else if(name === "btn-input"){
-        selectedTipPer = Number(value);
+        removeActiveClass();
+        selectedTipPer = Number(Number(value).toFixed(2));
     }else{
         people = Number(value);
     }
 
     if(bill > 0 && people > 0){
         const tipPerPerson = getTipPerPerson(bill, people);
-        tipAmntEL.innerText = `$${tipPerPerson.toFixed(2)}`;
+        const tipPerPersonFixed = tipPerPerson.toFixed(2);
+        tipAmntEL.innerText = `$${tipPerPersonFixed}`;
 
-        totalAmntEL.innerText = `$${(bill / people).toFixed(2)}`
+        totalAmntEL.innerText = `$${(bill / people + Number(tipPerPersonFixed)).toFixed(2)}`
 
         resetBtnEL.classList.add("active")
     }
@@ -61,6 +63,8 @@ resetBtnEL.addEventListener("click", function(){
     btnInputEL.value = "";
     removeActiveClass();
     selectedTipPer = 0;
+    bill = 0;
+    people = 0;
     tipAmntEL.innerText = "$0.00";
     totalAmntEL.innerText = "$0.00";
     resetBtnEL.classList.remove("active");

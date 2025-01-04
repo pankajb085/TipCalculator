@@ -19,7 +19,7 @@
         <div class="bill">
           <label class="bill-lbl">Bill</label>
           <span class="err-txt">Can't be zero</span>
-          <input type="number" name="bill" onchange="handleChange(event)" placeholder="0" min="1" />
+          <input type="number" name="bill" step="0.01" onchange="handleChange(event)" placeholder="0" min="1" />
         </div>
         <div class="tip">
           <label class="tip-lbl">Select Tip %</label>
@@ -29,7 +29,7 @@
             <div class="btn">15%</div>
             <div class="btn">25%</div>
             <div class="btn">50%</div>
-            <input class="btn-input" name="btn-input" onchange="handleChange(event)" type="number" placeholder="Custom" />
+            <input class="btn-input" name="btn-input" step="0.01" onchange="handleChange(event)" type="number" placeholder="Custom" />
           </div>
         </div>
         <div class="people">
