@@ -69,6 +69,10 @@ div:has(input:invalid) > span{
         border-radius: $border-radius;
         direction: rtl;
 
+        &[name="people"] {
+            background-image: url('../images/icon-person.svg');
+        };
+
         &:focus-visible, &:hover{
             outline: 2px solid $clr-sec;
         }
