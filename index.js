@@ -19,15 +19,27 @@ const removeActiveClass = () => {
     });
 };
 
+const handleClick = (e) => {
+    removeActiveClass();
+
+    e.target.classList.add("active");
+    if(btnInputEL.value){
+        btnInputEL.value = "";
+    }
+    selectedTipPer = Number(getTip(e.target.innerText));
+};
+
+btnELS.forEach(btnEL => {
+    btnEL.addEventListener('keydown', (e) => {
+        if(e.key === "Enter"){
+            handleClick(e);
+        }
+    });
+});
+
 buttonsEL.addEventListener('click', (e) => {
     if(e.target.className === "btn"){
-        removeActiveClass();
-
-        e.target.classList.add("active");
-        if(btnInputEL.value){
-            btnInputEL.value = "";
-        }
-        selectedTipPer = Number(getTip(e.target.innerText));
+        handleClick(e);
     }
 });
 

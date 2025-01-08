@@ -156,9 +156,10 @@ div:has(input:invalid) > span {
   border-radius: 0.25rem;
   padding: 0.375rem 1rem;
 }
-.tip .buttons .btn:hover {
+.tip .buttons .btn:hover, .tip .buttons .btn:focus-visible {
   background-color: #9FE8DF;
   color: #00474B;
+  outline: none;
 }
 .tip .buttons .btn.active {
   background-color: #26C2AE;

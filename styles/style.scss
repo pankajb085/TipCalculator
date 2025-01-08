@@ -159,9 +159,10 @@ div:has(input:invalid) > span{
             border-radius: $border-radius;
             padding: 0.375rem 1rem;
 
-            &:hover {
+            &:hover, &:focus-visible {
                 background-color: $clr-btn-hover;
                 color: $clr-pri;
+                outline: none;
             }
 
             &.active {

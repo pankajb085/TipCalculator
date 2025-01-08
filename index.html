@@ -19,35 +19,35 @@
         <div class="bill">
           <label class="bill-lbl">Bill</label>
           <span class="err-txt">Can't be zero</span>
-          <input type="number" name="bill" step="0.01" onchange="handleChange(event)" placeholder="0" min="1" />
+          <input type="number" tabindex="1" name="bill" step="0.01" onchange="handleChange(event)" placeholder="0" min="1" />
         </div>
         <div class="tip">
           <label class="tip-lbl">Select Tip %</label>
           <div class="buttons">
-            <div class="btn">5%</div>
-            <div class="btn">10%</div>
-            <div class="btn">15%</div>
-            <div class="btn">25%</div>
-            <div class="btn">50%</div>
-            <input class="btn-input" name="btn-input" step="0.01" onchange="handleChange(event)" type="number" placeholder="Custom" />
+            <div tabindex="2" class="btn">5%</div>
+            <div tabindex="3" class="btn">10%</div>
+            <div tabindex="4" class="btn">15%</div>
+            <div tabindex="5" class="btn">25%</div>
+            <div tabindex="6" class="btn">50%</div>
+            <input tabindex="7" class="btn-input" name="btn-input" step="0.01" onchange="handleChange(event)" type="number" placeholder="Custom" />
           </div>
         </div>
         <div class="people">
           <label class="no-label">Number of People</label>
           <span class="err-txt">Can't be zero</span>
-          <input type="number" name="people" onchange="handleChange(event)" placeholder="0" min="1" />
+          <input type="number" tabindex="8" name="people" onchange="handleChange(event)" placeholder="0" min="1" />
         </div>
       </div>
       <div class="calculator-screen">
         <div class="tip-amnt">
           <p>Tip Amount <br /><span>/ person</span></p>
-          <div class="amnt">$0.00</div>
+          <h1 class="amnt">$0.00</h1>
         </div>
         <div class="total-amnt">
           <p>Total <br /><span>/ person</span></p>
-          <div class="amnt">$0.00</div>
+          <h1 class="amnt">$0.00</h1>
         </div>  
-        <input type="reset" value="Reset">
+        <input tabindex="9" type="reset" value="Reset">
       </div>
     </div>
   </main>
